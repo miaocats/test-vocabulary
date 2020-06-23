@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Start from "./components/Start";
+import Test from "./components/Test";
+import Finish from "./components/Finish";
 
 function App() {
+
+  
+  
+  const [showScore,setShowScore]=useState(Array);
+  const handleLastScore = (e)=>{
+
+    if(e>1000){
+    setShowScore(e.toString().split('').map(Number));
+
+    }else if (e>0){
+      let b = e.toString().split('');
+      b.unshift('0');
+      setShowScore(b.map(Number));
+    }else {
+      setShowScore([0,0,0,0]);
+    }
+  };
+  console.log("this is showScore"+ showScore);
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Switch>
+            <Route exact path="/"  component={Start}>
+              
+            </Route>
+            <Route path="/test" component={Test}>
+              <Test  handleLastScore={handleLastScore}/>
+            </Route>
+            <Route path="/finish" component={Finish}>
+              <Finish  showScore={showScore}/>
+            </Route>
+          </Switch>
+    </Router>
+    
   );
 }
 
