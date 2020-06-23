@@ -170,7 +170,7 @@ function Test({ handleLastScore }) {
       setFifthStyle(null);
       setSixthStyle(null);
       setProgress(0);
-    }, 2000);
+    }, 1000);
   };
 
   const history = useHistory();
@@ -182,7 +182,7 @@ function Test({ handleLastScore }) {
     setTimeout(() => {
       handleAnswerList(wordList[currentTimes + 1][1]);
      // console.log("currentTime add 1");
-    }, 2000);
+    }, 1000);
 
     //console.log("this is number" + number);
     // console.log(
@@ -216,7 +216,7 @@ function Test({ handleLastScore }) {
       history.push("/finish");
     }
 
-    },2000);
+    },1000);
 
 
     

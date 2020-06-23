@@ -9,17 +9,20 @@ function App() {
   
   
   const [showScore,setShowScore]=useState(Array);
+  const [showText,setShowText] = useState('a');
   const handleLastScore = (e)=>{
 
     if(e>1000){
     setShowScore(e.toString().split('').map(Number));
-
+      setShowText("ccc");
     }else if (e>0){
       let b = e.toString().split('');
       b.unshift('0');
       setShowScore(b.map(Number));
+      setShowText("bbb");
     }else {
       setShowScore([0,0,0,0]);
+      setShowText("aaa");
     }
   };
   console.log("this is showScore"+ showScore);
@@ -34,7 +37,7 @@ function App() {
               <Test  handleLastScore={handleLastScore}/>
             </Route>
             <Route path="/finish" component={Finish}>
-              <Finish  showScore={showScore}/>
+              <Finish  showScore={showScore} showText={showText}/>
             </Route>
           </Switch>
     </Router>

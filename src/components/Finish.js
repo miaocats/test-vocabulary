@@ -11,7 +11,7 @@ import Paper from "@material-ui/core/Paper";
 
 
 
-function Finish({showScore}) {
+function Finish({showScore,showText}) {
     const useStyles = makeStyles((theme) => ({
         root: {
           display: "flex",
@@ -115,7 +115,7 @@ function Finish({showScore}) {
                 <div style={lineStyle}></div>
                 <div style={numberStyle}>{showScore[3]}</div>
             </div>
-           <p> hello, uopur em alefe wfjew iofjeiw ojf id oswj fieowjfiwsoe dfj sw do </p>
+  <p> hello{showText}, uopur em alefe wfjew iofjeiw ojf id oswj fieowjfiwsoe dfj sw do </p>
         </paper>
 
 
